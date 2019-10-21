@@ -1,0 +1,20 @@
+GET http://localhost:3000/api/user/
+###
+GET http://localhost:3000/subscribers/5d9f1930cd118011ac7851fa
+###
+POST http://localhost:3000/api/user/register
+Content-Type: application/json
+
+{
+"email": "f@a.a", "firstName": "Ab", "lastName": "Cd", "password": "123"
+}
+
+### 
+DELETE http://localhost:3000/api/user/5dad94cf9a0f752074e95d51
+###
+PUT http://localhost:3000/api/user/5dad94fa9a0f752074e95d54
+Content-Type: application/json
+
+{
+"email": "fo@fo.f", "firstName": "Ff", "lastName": "Cd", "password": "123"
+}
