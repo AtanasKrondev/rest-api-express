@@ -1,8 +1,8 @@
 GET http://localhost:3000/api/user/
 ###
-GET http://localhost:3000/subscribers/5d9f1930cd118011ac7851fa
+GET http://localhost:3000/api/user/5dad94fa9a0f752074e95d54
 ###
-POST http://localhost:3000/api/user/register
+POST http://localhost:3000/api/user/
 Content-Type: application/json
 
 {
