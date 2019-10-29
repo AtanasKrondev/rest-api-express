@@ -1,9 +1,11 @@
 const express = require('express');
 const config = require('./config');
-const apiRouter = require('./api')
+const apiRouter = require('./api');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
+app.use(cookieParser('secret'));
 app.use(express.json());
 app.use('/api', apiRouter);
 
