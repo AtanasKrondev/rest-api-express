@@ -22,6 +22,4 @@ router.post('/login', (req, res, next) => {
         .catch(next);
 });
 
-router.use('/user', auth(), userRouter)
-
 module.exports = router;
