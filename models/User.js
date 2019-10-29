@@ -6,6 +6,7 @@ const userSchema = new Schema({
     firstName: { type: Schema.Types.String, required: true },
     lastName: { type: Schema.Types.String, required: true },
     password: { type: Schema.Types.String, required: true },
+    isAdmin: { type: Schema.Types.Boolean, default: false }
 });
 
 module.exports = mongoose.model('User', userSchema);

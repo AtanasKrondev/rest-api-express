@@ -1,31 +1,31 @@
 const router = require('express').Router();
 const { User } = require('../models');
+const auth = require('../modules/auth')
 
-router.get('/', (req, res, next) => {
+router.get('/', auth(), (req, res, next) => {
     User.find().then(users => res.send(users)).catch(next)
 });
 
-router.get('/:id', (req, res, next) => {
+router.get('/:id', auth(), (req, res, next) => {
     const id = req.params.id;
     User.findOne({ _id: id }).then(users => res.send(users)).catch(next)
 });
 
-router.post('/', (req, res, next) => {
+router.post('/', auth(), (req, res, next) => {
     const { email, firstName, lastName, password } = req.body;
     User.create({ email, firstName, lastName, password })
         .then(user => res.send(user))
         .catch(next);
 });
 
-router.put('/:id', (req, res, next) => {
-    const id = req.params.id;
-    const { email, firstName, lastName, password } = req.body;
+router.put('/', auth(true), (req, res, next) => {
+    const { id, email, firstName, lastName, password } = req.body;
     User.updateOne({ _id: id }, { email, firstName, lastName, password })
         .then(user => res.send(user))
         .catch(next);
 });
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', auth(true), (req, res, next) => {
     const id = req.params.id;
     User.deleteOne({ _id: id })
         .then(user => res.send(user))

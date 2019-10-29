@@ -2,7 +2,6 @@ const router = require('express').Router();
 const { User } = require('../models');
 const jwt = require('../modules/jwt');
 const userRouter = require('./user');
-const auth = require('../modules/auth');
 
 router.get('/', (req, res) => res.send('Hello world!'));
 router.post('/register', (req, res, next) => {
@@ -23,6 +22,6 @@ router.post('/login', (req, res, next) => {
         .catch(next);
 });
 
-router.use('/user',auth(), userRouter)
+router.use('/user', auth(), userRouter)
 
 module.exports = router;
